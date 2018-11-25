@@ -1,0 +1,16 @@
+.navbar-icon {
+    padding: 0 14px;
+}
+
+#brand {
+    text-decoration: none;
+    color: inherit;
+}
+
+#navbar {
+    background-color: transparent;
+}
+
+.header-hr {
+    padding: 0 0.5em;
+}

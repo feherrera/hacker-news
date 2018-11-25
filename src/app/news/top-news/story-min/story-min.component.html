@@ -1,0 +1,14 @@
+<div *ngIf="item" class="story">
+  <div class="story-score">
+    {{item.score}}<br/><small>points</small>
+  </div>
+  <div>
+    <h4 class="story-title">
+      <a href="{{item.url}}">{{item.title}} </a> <small>(by {{item.by}})</small>
+    </h4>
+    <small>
+        {{item.time*1000 | date : 'd-M-y h:mm'}} | 
+        <a [routerLink]="['/story', item.id]">{{item.descendants}} comments</a>
+    </small>
+  </div>
+</div>

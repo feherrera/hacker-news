@@ -1,0 +1,11 @@
+<div *ngIf="item; else loadingTemplate" class="comment container">
+  <h4 class="comment-title">{{item.by}} <span>{{item.time*1000 | date : 'd-M-y h:mm'}}</span></h4>
+  <div [innerHtml]="item.text"></div>
+  <div *ngFor="let response of item.kids" style="padding-left: 1em">
+    <app-comment [id]="response"></app-comment>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <app-spinner></app-spinner>
+</ng-template>

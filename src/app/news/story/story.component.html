@@ -1,0 +1,26 @@
+<div *ngIf="item; else loadingTemplate">
+  <div class="story">
+    <div class="story-score">
+      {{item.score}}<br/><small>points</small>
+    </div>
+    <div>
+      <h3 class="story-title">
+        <a href="{{item.url}}">{{item.title}} </a> <small>(by {{item.by}})</small>
+      </h3>
+      <small>
+        {{item.time*1000 | date : 'd-M-y h:mm'}} | {{item.descendants}} comments
+      </small>
+      
+    </div>
+  </div>
+
+  <div class="story-comments">
+    <div *ngFor="let comment of item.kids;">
+      <app-comment [id]=comment></app-comment>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <app-spinner></app-spinner>
+</ng-template>

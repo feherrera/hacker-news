@@ -1,0 +1,28 @@
+<div *ngIf="itemIds$ | async; else loadingTemplate">
+  <mat-paginator [length]="(itemIds$ | async).length"
+  [pageSize]="pageSize"
+  [hidePageSize]="true"
+  [pageIndex]="currentPage"
+  [showFirstLastButtons]="true"
+  (page)="onPageChanged($event)"
+  class="paginator">
+  </mat-paginator>
+
+  <article *ngFor="let itemId of itemIds$ | async | slice : firstElement : lastElement ; last as isLast">
+  <app-story-min [id]="itemId"></app-story-min>
+  <hr *ngIf="!isLast"/>
+  </article>
+
+  <mat-paginator [length]="(itemIds$ | async).length"
+  [pageSize]="pageSize"
+  [hidePageSize]="true"
+  [pageIndex]="currentPage"
+  [showFirstLastButtons]="true"
+  (page)="onPageChanged($event)"
+  class="paginator">
+  </mat-paginator>
+</div>
+
+<ng-template #loadingTemplate>
+    <app-spinner></app-spinner>
+  </ng-template>

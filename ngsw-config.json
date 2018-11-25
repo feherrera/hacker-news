@@ -22,5 +22,25 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "HackerNews Best Stories",
+      "urls": ["https://hacker-news.firebaseio.com/v0/beststories.json"],
+      "cacheConfig": {
+          "maxSize": 1,
+          "maxAge": "2h",
+          "strategy": "freshness"
+      }
+    },
+    {
+      "name": "HackerNews Items",
+      "urls": ["https://hacker-news.firebaseio.com/v0/item/**"],
+      "cacheConfig": {
+          "maxSize": 10,
+          "maxAge": "2h",
+          "strategy": "freshness"
+      }
+    }
   ]
 }
